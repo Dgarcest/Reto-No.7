@@ -3,29 +3,26 @@
 ## 1. Imprimir un listado con los números del 1 al 100 cada uno con su respectivo cuadrado.
 
 ```python
+numero = 1 #se declara la variable
 
+while numero<=100: #ciclo while hasta el numero 100
+    cuadrado = numero**2
+    print(f"El numero es {numero} y su cuadrado {cuadrado}")
+    numero += 1 #se le suma 1 a la variable para que el ciclo no sea infinito
 ```
 
 ## Diagrama de flujo
 
 ```mermaid
 flowchart TD;
-  A[Pedir 3 números] -->B
-  B[X = primer número + segundo número] --> C{Si X > tercer número}
-  C --SI--> D[la suma de los
-            2 primeros números
-            es mayor al tercero]
-  C --NO--> E{Si X < tercer número}
-  E --SI--> F[la suma de los 2
-              primeros números
-              es menor al tercero]
-  E --NO--> G[la suma de los 2
-              primeros números es
-              igual al tercer número]
-  D --> H(Fin)
-  F --> H(Fin)
-  G --> H(Fin)
-
+  A[numero = 1] -->B
+  B{numero menor
+  o igual a 100?} --V--> C
+  C[cuadrado = numero**2] ----> D[imprimir el numero
+          y el cuadrado]
+  D ----> E[numero += 1]
+  B --F-->F(Fin)
+  E ----> B
 ```
 
 ## 2. Imprimir un listado con los números impares desde 1 hasta 999 y seguidamente otro listado con los números pares desde 2 hasta 1000.
