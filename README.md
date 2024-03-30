@@ -147,14 +147,62 @@ if n!=1:
 ## 6. Implementar un algoritmo que permita adivinar un número dado de 1 a 100, preguntando en cada caso si el número es mayor, menor o igual.
 
 ```python
+def adivinador(): #se crea la funcion para adivinar
+    print("Escoja un número del 1 al 100") #se le dice al usuario que piense en un numero
+
+    numero_adivinado = 50 #se define una variable igual a 50
+    
+    while True: #bucle que siempre se va a ejecutar excepto cuando la respuesta sea "igual"
+        respuesta = input(f"{numero_adivinado} es mayor, menor o igual al numero?: ")
+        respuesta = respuesta.lower()
+        
+        if respuesta == "igual": #aqui el bucle se termina
+            print(f"El numero es {numero_adivinado}")
+            break
+        elif respuesta == "menor": 
+            numero_adivinado -= 1 #se le resta 1 a la variable y el bucle sigue
+        else:    
+            numero_adivinado += 1 #se le suma 1 a la variable y el bucle sigue
+
+adivinador() #se llama a la funcion
 ```
 
 ## 7. Implementar un programa que ingrese un número de 2 a 50 y muestre sus divisores.
 
 ```python
+numero = int(input("Ingrese un numero del 2 al 50: ")) #se pide el numero
+
+divisor = 1 #se crea una variable igual a 1
+
+print(f"Los divisores de {numero} son:") #print para aclarar el inicio de la lista de los divisores
+
+while divisor<=numero: 
+    if numero%divisor == 0: #si el residuo es 0 significa que es divisor
+        print(divisor)
+
+    divisor += 1 #incremento para cada iteracion
+
+print(f"Fin lista de los divisores de {numero}") #print para aclarar el fin de la lista de los divisores
 ```
 
 ## 8. Implementar el algoritmo que muestre los números primos del 1 al 100. Nota: use funciones
 
 ```python
+def primo(numero): #funcion para saber si el numero es primo o no
+    numero_divisor = 1 #se define una variable = 1 que es el divisor
+    indicador = 0 #se define una variable por si el numero tiene mas de 2 divisores, que al inicio es 0
+    while numero_divisor<=100: 
+        if numero%numero_divisor == 0: #si es cierto significa que numero_divisor es divisor de numero
+            indicador += 1 #el numero de veces que aumente significa el numero de divisores que tiene el numero
+            if indicador > 2: #si es cierto significa que el numero no es primo ya que tiene mas de 2 divisores, entonces retorna un False
+                return False
+        numero_divisor += 1 #se incrementa el divisor en 1 y se vuelve a el ciclo
+    return True #si se salio del bucle significa que no retorno un Falso nunca, osea no tiene mas de 2 divisores por lo que es primo y se retorna un True
+
+if __name__ == "__main__": #funcion main
+    numero = 2 #variable = 2 ya que 1 no es primo
+    while numero<=100: 
+        if primo(numero) == True: #si el numero es primo
+            print(f"{numero} es primo")
+        numero +=1 #incremento cada ciclo
 ```
