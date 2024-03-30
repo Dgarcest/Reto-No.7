@@ -107,11 +107,41 @@ G --F-->J(fin)
 ## 4. En 2022 el país A tendrá una población de 25 millones de habitantes y el país B de 18.9 millones. Las tasas de crecimiento anual de la población serán de 2% y 3% respectivamente. Desarrollar un algoritmo para informar en que año la población del país B superará a la de A.
 
 ```python
+#se declaran las 3 variables
+pais_a = 25000000 
+pais_b = 18900000
+fecha = 2022
+
+while pais_b<pais_a: #ciclo cuando la población del B es menor
+    print(f"En el año {fecha} la poblacion del pais A es {pais_a}, la del pais B es {pais_b}") #se imprime el incremento cada año
+    #se incrementa cada año la población con la tasa de crecimiento
+    pais_a = pais_a + pais_a*(2/100) 
+    pais_b = pais_b + pais_b*(3/100) 
+    fecha += 1
+
+#cuando el ciclo terminó significa que el B supero al de A y se imprime el mensaje
+print(f"La poblacion del pais A de {pais_a} habitantes fue superada por el pais B con una poblacion de {pais_b} en el año {fecha}")
 ```
 
 ## 5. Imprimir el factorial de un número natural n dado.
 
 ```python
+n = int(input("Escriba el numero al que le quiere sacar el factorial: ")) #se pide al usuario el numero
+
+#se tiene en cuenta el caso en el que el numero sea 1
+if n==1:
+    print("El factorial de 1 es 1")
+
+#se declara una variable la cual va a ser la multiplicación del numero con el numero anterior
+p = n * (n-1)
+
+while n>2: #ciclo mientras cuando el numero es mayor a 2
+    n -= 1 #se disminuye en 1 el numero
+    p = p * (n-1) #el p ya declarado se multiplica con el anterior del numero anterior, ya que en este punto se disminuyo n en 2 por la linea de arriba
+
+#se pone el if por si el numero es 1 para que no imprima la linea
+if n!=1:
+    print(f"El factorial es {p}")
 ```
 
 ## 6. Implementar un algoritmo que permita adivinar un número dado de 1 a 100, preguntando en cada caso si el número es mayor, menor o igual.
